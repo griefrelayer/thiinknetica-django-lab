@@ -1,0 +1,4 @@
+{% load account %}
+{% load i18n %}{% load crispy_forms_tags %}
+{% user_display user as name %}
+{% blocktrans %}Successfully signed in as {{name}}.{% endblocktrans %}

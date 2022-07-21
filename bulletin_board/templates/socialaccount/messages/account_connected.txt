@@ -1,0 +1,2 @@
+{% load i18n %}{% load crispy_forms_tags %}
+{% blocktrans %}The social account has been connected.{% endblocktrans %}

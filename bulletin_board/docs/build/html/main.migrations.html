@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>main.migrations package &#8212; документация Bulletin board 0.9.3</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="main-migrations-package">
+<h1>main.migrations package<a class="headerlink" href="#main-migrations-package" title="Ссылка на этот заголовок">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Ссылка на этот заголовок">¶</a></h2>
+</section>
+<section id="module-main.migrations.0001_initial">
+<span id="main-migrations-0001-initial-module"></span><h2>main.migrations.0001_initial module<a class="headerlink" href="#module-main.migrations.0001_initial" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.migrations.0001_initial.Migration">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main.migrations.0001_initial.</span></span><span class="sig-name descname"><span class="pre">Migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.migrations.0001_initial.Migration" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.migrations.migration.Migration</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0001_initial.Migration.dependencies">
+<span class="sig-name descname"><span class="pre">dependencies</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[('customuser',</span> <span class="pre">'0001_initial'),</span> <span class="pre">('customuser',</span> <span class="pre">'__first__')]</span></em><a class="headerlink" href="#main.migrations.0001_initial.Migration.dependencies" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0001_initial.Migration.initial">
+<span class="sig-name descname"><span class="pre">initial</span></span><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#main.migrations.0001_initial.Migration.initial" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0001_initial.Migration.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[&lt;CreateModel</span>&#160; <span class="pre">name='Ad',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.BigAutoField&gt;),</span> <span class="pre">('name',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('description',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('datetime_created',</span> <span class="pre">&lt;django.db.models.fields.DateTimeField&gt;),</span> <span class="pre">('datetime_modified',</span> <span class="pre">&lt;django.db.models.fields.DateTimeField&gt;),</span> <span class="pre">('price',</span> <span class="pre">&lt;django.db.models.fields.PositiveIntegerField&gt;)],</span> <span class="pre">options={'abstract':</span> <span class="pre">False}&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Category',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.BigAutoField&gt;),</span> <span class="pre">('name',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('slug',</span> <span class="pre">&lt;django.db.models.fields.SlugField&gt;)]&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Seller',</span> <span class="pre">fields=[('user_ptr',</span> <span class="pre">&lt;django.db.models.fields.related.OneToOneField&gt;),</span> <span class="pre">('inn',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('picture',</span> <span class="pre">&lt;sorl.thumbnail.fields.ImageField&gt;)],</span> <span class="pre">options={'verbose_name':</span> <span class="pre">'user',</span> <span class="pre">'verbose_name_plural':</span> <span class="pre">'users',</span> <span class="pre">'abstract':</span> <span class="pre">False},</span> <span class="pre">bases=('customuser.user',),</span> <span class="pre">managers=[('objects',</span> <span class="pre">&lt;django.contrib.auth.models.UserManager</span> <span class="pre">object&gt;)]&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Tag',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.BigAutoField&gt;),</span> <span class="pre">('name',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;)]&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Car',</span> <span class="pre">fields=[('ad_ptr',</span> <span class="pre">&lt;django.db.models.fields.related.OneToOneField&gt;),</span> <span class="pre">('brand',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('mileage',</span> <span class="pre">&lt;django.db.models.fields.PositiveIntegerField&gt;),</span> <span class="pre">('color',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;)],</span> <span class="pre">options={'abstract':</span> <span class="pre">False},</span> <span class="pre">bases=('main.ad',)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Service',</span> <span class="pre">fields=[('ad_ptr',</span> <span class="pre">&lt;django.db.models.fields.related.OneToOneField&gt;),</span> <span class="pre">('area',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;)],</span> <span class="pre">options={'abstract':</span> <span class="pre">False},</span> <span class="pre">bases=('main.ad',)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Thing',</span> <span class="pre">fields=[('ad_ptr',</span> <span class="pre">&lt;django.db.models.fields.related.OneToOneField&gt;),</span> <span class="pre">('weight',</span> <span class="pre">&lt;django.db.models.fields.PositiveIntegerField&gt;),</span> <span class="pre">('size',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;)],</span> <span class="pre">options={'abstract':</span> <span class="pre">False},</span> <span class="pre">bases=('main.ad',)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Subscriber',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.BigAutoField&gt;),</span> <span class="pre">('subscribed_to',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('user',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)]&gt;,</span> <span class="pre">&lt;AddField</span>&#160; <span class="pre">model_name='ad',</span> <span class="pre">name='category',</span> <span class="pre">field=&lt;django.db.models.fields.related.ForeignKey&gt;&gt;,</span> <span class="pre">&lt;AddField</span>&#160; <span class="pre">model_name='ad',</span> <span class="pre">name='seller',</span> <span class="pre">field=&lt;django.db.models.fields.related.ForeignKey&gt;&gt;,</span> <span class="pre">&lt;AddField</span>&#160; <span class="pre">model_name='ad',</span> <span class="pre">name='tags',</span> <span class="pre">field=&lt;django.db.models.fields.related.ManyToManyField&gt;&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='ArchiveAd',</span> <span class="pre">fields=[],</span> <span class="pre">options={'ordering':</span> <span class="pre">['datetime_created'],</span> <span class="pre">'proxy':</span> <span class="pre">True,</span> <span class="pre">'indexes':</span> <span class="pre">[],</span> <span class="pre">'constraints':</span> <span class="pre">[]},</span> <span class="pre">bases=('main.ad',)&gt;,</span> <span class="pre">&lt;CreateModel</span>&#160; <span class="pre">name='Picture',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.BigAutoField&gt;),</span> <span class="pre">('pic',</span> <span class="pre">&lt;sorl.thumbnail.fields.ImageField&gt;),</span> <span class="pre">('car',</span> <span class="pre">&lt;django.db.models.fields.related.ForeignKey&gt;)]&gt;]</span></em><a class="headerlink" href="#main.migrations.0001_initial.Migration.operations" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-main.migrations.0002_smslog">
+<span id="main-migrations-0002-smslog-module"></span><h2>main.migrations.0002_smslog module<a class="headerlink" href="#module-main.migrations.0002_smslog" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.migrations.0002_smslog.Migration">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main.migrations.0002_smslog.</span></span><span class="sig-name descname"><span class="pre">Migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.migrations.0002_smslog.Migration" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.migrations.migration.Migration</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0002_smslog.Migration.dependencies">
+<span class="sig-name descname"><span class="pre">dependencies</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[('customuser',</span> <span class="pre">'__first__'),</span> <span class="pre">('main',</span> <span class="pre">'0001_initial')]</span></em><a class="headerlink" href="#main.migrations.0002_smslog.Migration.dependencies" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0002_smslog.Migration.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[&lt;CreateModel</span>&#160; <span class="pre">name='SMSLog',</span> <span class="pre">fields=[('id',</span> <span class="pre">&lt;django.db.models.fields.BigAutoField&gt;),</span> <span class="pre">('generated_code',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('phone_number',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('provider_response',</span> <span class="pre">&lt;django.db.models.fields.CharField&gt;),</span> <span class="pre">('user',</span> <span class="pre">&lt;django.db.models.fields.related.OneToOneField&gt;)]&gt;]</span></em><a class="headerlink" href="#main.migrations.0002_smslog.Migration.operations" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-main.migrations.0003_auto_20210822_0401">
+<span id="main-migrations-0003-auto-20210822-0401-module"></span><h2>main.migrations.0003_auto_20210822_0401 module<a class="headerlink" href="#module-main.migrations.0003_auto_20210822_0401" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.migrations.0003_auto_20210822_0401.Migration">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">main.migrations.0003_auto_20210822_0401.</span></span><span class="sig-name descname"><span class="pre">Migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.migrations.0003_auto_20210822_0401.Migration" title="Ссылка на это определение">¶</a></dt>
+<dd><blockquote>
+<div><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.migrations.migration.Migration</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0003_auto_20210822_0401.Migration.dependencies">
+<span class="sig-name descname"><span class="pre">dependencies</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[('customuser',</span> <span class="pre">'__first__'),</span> <span class="pre">('main',</span> <span class="pre">'0002_smslog')]</span></em><a class="headerlink" href="#main.migrations.0003_auto_20210822_0401.Migration.dependencies" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="main.migrations.0003_auto_20210822_0401.Migration.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><em class="property"> <span class="pre">=</span> <span class="pre">[&lt;AddField</span>&#160; <span class="pre">model_name='smslog',</span> <span class="pre">name='verified',</span> <span class="pre">field=&lt;django.db.models.fields.BooleanField&gt;&gt;,</span> <span class="pre">&lt;AlterField</span>&#160; <span class="pre">model_name='smslog',</span> <span class="pre">name='provider_response',</span> <span class="pre">field=&lt;django.db.models.fields.CharField&gt;&gt;,</span> <span class="pre">&lt;AlterField</span>&#160; <span class="pre">model_name='smslog',</span> <span class="pre">name='user',</span> <span class="pre">field=&lt;django.db.models.fields.related.OneToOneField&gt;&gt;]</span></em><a class="headerlink" href="#main.migrations.0003_auto_20210822_0401.Migration.operations" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-main.migrations">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-main.migrations" title="Ссылка на этот заголовок">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Bulletin board</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Ilia Yartsev.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/main.migrations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

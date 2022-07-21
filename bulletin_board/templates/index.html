@@ -1,0 +1,22 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+{% load extra_tags %}
+{% block title %}Доска объявлений{% endblock title %}
+{% block header %}
+{% include 'header.html' with username=user.username %}
+{% endblock header %}
+{% block content %}
+{% if config.MAINTENANCE_MODE %}
+<div class="maintenance_mode">
+    <h2 class="text-center" style="margin-top: 25%; font-size:50px">На сайте проводятся технические работы</h2>
+</div>
+{% endif %}
+<p class="text-dark">Текущее время: {% now "H:i" %}</p>
+<h3>Разделы:</h3>
+<div class="col-md-1 m-3">
+    <a href="/cars/"><h4>Автомобили</h4></a>
+    <a href="/things"><h4>Вещи</h4></a>
+    <a href="/services"><h4>Услуги</h4></a>
+</div>
+{% include 'footer.html' %}
+{% endblock content %}

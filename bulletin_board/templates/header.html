@@ -1,0 +1,35 @@
+<!-- templates/header.html -->
+{% load extra_tags %}
+{% load thumbnail %}
+   <header>
+    <!-- Fixed navbar -->
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 ml-5"><h3>Доска объявлений</h3></span>
+      </a>
+      <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a class="p-2 text-dark" href="{% url 'about' %}">О нас</a></li>
+		  <li><a class="p-2 text-dark" href="{% url 'contact' %}">Контакты</a></li>
+      </ul>
+      {% if user.is_authenticated %}
+        <p class="text-dark text-right my-0 my-md-0 mr-md-3">
+            {% if user|has_seller %}
+                {% thumbnail user.seller.picture "30x30" crop="center" as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-thumbnail mr-3">
+                {% endthumbnail %}
+            {% else %}
+                Вошли как:
+            {% endif %}
+            <a href="{% url 'seller_update' %}" class="my-2 my-md-0 mr-md-3">{{ user.username }}</a>
+        </p>
+      {% else %}
+        <div class="col-md-2 text-end text-right mr-0">
+            <a href="/accounts/login" class="btn btn-outline-primary me-2">Войти</a>
+            <a href="/accounts/signup" class="btn btn-primary" >Регистрация</a>
+        </div>
+      {% endif %}
+        <form class="form-inline text-end mr-5 ml-0" method="GET" action="{% url 'search' %}">
+            <input class="form-control" type="text" name='q' placeholder="Поиск по объявлениям" aria-label="Поиск по объявлениям">
+        </form>
+    </div>
+  </header>

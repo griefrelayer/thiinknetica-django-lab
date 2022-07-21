@@ -1,0 +1,28 @@
+<!-- templates/flatpages/default.html -->
+{% extends "base.html" %}
+{% block seo_description %}Как с нами связаться, телефон, email, telegram{% endblock seo_description%}
+{% block json_ld %}
+<script type='application/ld+json'>
+{
+  "@context": "http://www.schema.org",
+  "@type": "Organization",
+  "name": "Доска объявлений",
+  "url": "{{ request.build_absolute_uri }}",
+  "description": "Связаться с нами",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Moscow",
+    "addressCountry": "Russia"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+79175094539"
+  }
+}
+ </script>
+{% endblock json_ld %}
+{% block title %}{{ flatpage.title }}{% endblock title %}
+{% block content %}
+{{ flatpage.content }}
+{% include 'footer.html' %}
+{% endblock content %}

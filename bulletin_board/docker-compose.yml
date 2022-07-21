@@ -1,0 +1,74 @@
+# docker-compose.yml
+version: '3.3'
+
+services:
+  redis:
+    image: "redis:alpine"
+    command: redis-server
+    restart: always
+    container_name: 'bulletin_board_redis'
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis-data:/usr/local/etc/redis
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  db:
+    ports:
+      - 5432:5432
+    image: postgres:11
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    volumes:
+
+      - postgres_data:/var/lib/postgresql/data/
+
+  web:
+    build: .
+    restart: always
+    container_name: 'bulletin_board_web'
+    command: bash startweb.sh
+    volumes:
+      - .:/code
+      - static_volume:/code/static
+      - media_volume:/code/media
+    expose:
+      - 8000
+    ports:
+      - 8001:8001
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - ./.env.dev
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+    volumes:
+      - static_volume:/code/static
+      - media_volume:/code/media
+
+  celery:
+    build: .
+    container_name: 'bulletin_board_celery'
+    command: celery -A bulletin_board worker -B
+    volumes:
+      - .:/code
+    links:
+      - redis
+    depends_on:
+      - web
+      - redis
+
+volumes:
+
+  postgres_data:
+  static_volume:
+  media_volume:

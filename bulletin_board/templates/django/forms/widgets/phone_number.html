@@ -1,0 +1,36 @@
+<input type="number" name="phone_number" maxlength="12" class="textinput textInput form-control" id="id_phone_number">
+<input type="button" class="btn btn-success mt-3" id="phone_verify" value="Отправить код проверки" /><div id="phone_code_placeholder"></div>
+
+<script>
+$(document).on('click','#code_verify',function(event) {
+    event.preventDefault();
+      $.ajax({
+               method: "POST",
+               url: "{% url 'code_verify' %}",
+               dataType: "json",
+               data: {code: $("#id_code").val(), phone_number: $("#id_phone_number").val()},
+               success: function(response) {
+                      $("#phone_code_placeholder").html('<div class="mt-3"><font color="green">Успешно подтвержден!</font></div>')
+                },
+                error: function(response, e) {
+                       $("#phone_code_placeholder").html(response["responseJSON"]["error"])
+                }
+          });
+    });
+var pass_data = $('form').serialize();
+$(document).on('click','#phone_verify',function(event) {
+      $.ajax({
+               method: "POST",
+               url: "{% url 'phone_verify' %}",
+               dataType: "json",
+               data: {phone_number: $("#id_phone_number").val()},
+               success: function(response) {
+                      $("#phone_code_placeholder").html('<div><label for="id_code" class="mt-3 requiredField">Введите код:<span class="asteriskField">*</span> </label><input type="number" max="9999" class="textinput textInput form-control mt-3" id="id_code"><input type="button" class="btn btn-success mt-3" id="code_verify" value="Подтвердить" /></div>')
+                },
+                error: function(response, e) {
+                       $("#phone_code_placeholder").html(response["responseJSON"]["error"])
+                }
+          });
+    });
+
+</script>

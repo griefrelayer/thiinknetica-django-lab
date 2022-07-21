@@ -1,0 +1,15 @@
+<!-- форма сообщений -->
+<div>
+    <button class="btn btn-primary" id="chat-open-btn" onclick="openForm()">Открыть чат</button>
+    <button class="btn btn-secondary" id="chat-close-btn" onclick="closeForm()">Закрыть чат</button>
+    <div class="form-popup" id="chat_window">
+        <h3>Чат</h3>
+        <div id="content" class="chat_p d-flex flex-column"></div>
+
+        <div class="chat_div" class="d-flex flex-row">
+            <span id="status">Соединение...</span>
+            <input type="text" id="input" disabled="disabled"/>
+        </div>
+    </div>
+
+</div>

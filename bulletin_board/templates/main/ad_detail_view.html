@@ -1,0 +1,39 @@
+<!-- templates/main/ad_detail_view.html -->
+{% load extra_tags %}
+{% load cache %}
+{% load thumbnail %}
+<div class="row" style="margin-top:20px">
+    <div class="col-sm-12">
+        {% if picture %}
+            <div class="rounded mx-auto d-block">
+                {% thumbnail picture "800x600" crop="center" as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-thumbnail mr-3">
+                {% endthumbnail %}
+            </div>
+        {% endif %}
+        <ul style="list-style-type:none">
+            <li style="margin:30px"><h2 class="text-left">{{ object.name }}</h2></li>
+            <li style="margin:30px"><p class="font-weight-bold" style="font-size:24px">{% cache 60 price_cache object.pk %}{{ object.price }}{% endcache %} ₽</p></li>
+            <li class="text-left">Категория: {{ object.category.name }}</li>
+            <li class="text-left">Автор объявления: {{ object.seller.username }}</li>
+            <li class="text-left">Дата создания объявления: {{ object.date_created }}</li>
+            {% for field, value in object|get_fields %}
+                {% if field != 'ad ptr' %}
+                <li>{{ field }}: {{ value }}</li>
+                {% endif %}
+            {% endfor %}
+            {% for tag in object.tags %}
+                <li><a href="../?tag={{ tag }}">{{ tag }}</a></li>
+            {% endfor %}
+            <li style="margin:30px">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="text-left">Описание:</p>
+                        <p>{{ object.description }}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

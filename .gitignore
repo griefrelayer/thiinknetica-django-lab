@@ -1,0 +1,7 @@
+# Added ignore rules
+*.pyc
+db.sqlite3
+__pycache__
+.idea
+static
+media

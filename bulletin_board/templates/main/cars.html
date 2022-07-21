@@ -1,0 +1,12 @@
+<!-- templates/main/cars.html -->
+{% extends 'main/ad_list_view.html' %}
+{% block title %}Автомобили{% endblock title %}
+{% block seo_description %}
+о продаже автомобилей, мотоциклов, коммерческого и водного транспорта по низким ценам в Москве. На Доске объявлений вы можете недорого купить новые и подержанные автомобили, мотоциклы, грузовики и другую спецтехнику, а также запчасти к ним. Выбирайте среди предложений компаний и частных объявлений о продаже транспорта и запчастей на Доске объявлений
+{% endblock seo_description %}
+{% block ad_name %}Автомобили{% endblock ad_name %}
+{% block ad_specific %}
+    <li>Марка авто: {{ ad.brand }}</li>
+    <li>Пробег: {{ ad.mileage }}</li>
+    <li>Цвет: {{ ad.color }}</li>
+{% endblock ad_specific %}

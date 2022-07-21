@@ -1,0 +1,10 @@
+<!-- templates/main/car_detail_view.html -->
+{% extends 'base.html' %}
+{% load extra_tags %}
+{% block title %}{{ object.name }}{% endblock title %}
+{% block seo_description %}{% for field, value in object|get_fields %}{% if field != 'ad ptr' %}{{ field }}: {{ value }}, {% endif %}{% endfor %}{% endblock seo_description %}
+{% block content %}
+<h2>Автомобили</h2>
+{% include 'main/ad_detail_view.html' with object=object%}
+{% include 'footer.html' %}
+{% endblock content %}

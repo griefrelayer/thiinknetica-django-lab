@@ -1,0 +1,15 @@
+<!-- templates/main/ad_create.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Объявление - создание{% endblock title %}
+{% block content %}
+<form method="post" class="w-50" enctype="multipart/form-data">{% csrf_token %}
+    {{ picture_forms.management_form }}
+    {{ form|crispy }}
+    {% for form in picture_forms %}
+                {{ form|crispy }}
+    {% endfor %}
+    <div class="text-right"><input type="submit" class="btn btn-success mt-3" value="Создать"></div>
+</form>
+{% include 'footer.html' %}
+{% endblock content %}

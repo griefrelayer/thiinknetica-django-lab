@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Продавец - редактирование{% endblock title %}
+{% block content %}
+<form method="post" class="w-50">{% csrf_token %}
+    {{ form|crispy }}
+    <div class="text-right"><input type="submit" class="btn btn-success mt-3" value="Сохранить"></div>
+</form>
+{% include 'footer.html' %}
+{% endblock content %}

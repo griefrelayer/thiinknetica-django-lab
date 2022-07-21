@@ -1,0 +1,325 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/Ilia_Yartsev/Bulletin_board/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: http://localhost:8000/api/v1/
+info:
+  description: This is bulletin_board API
+  version: "1.0.0"
+  title: Bulletin Board API
+  contact:
+    email: iliayartsev@mail.ru
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: cars
+    description: Cars related ads api
+  - name: things
+    description: Things related ads api
+  - name: services
+    description: Services related ads api
+components:
+  schemas:
+    Car:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: integer
+        seller:
+          type: integer
+        datetime_created:
+          type: string
+          format: data
+        datetime_modified:
+          type: string
+          format: data
+        tags:
+          type: string
+        price:
+          type: integer
+          format: int64
+        is_sold:
+          type: boolean
+        is_archived:
+          type: boolean
+        brand:
+          type: string
+        mileage:
+          type: integer
+        color:
+          type: string
+
+      required:
+        - id
+
+    Thing:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: integer
+        seller:
+          type: integer
+        datetime_created:
+          type: string
+          format: data
+        datetime_modified:
+          type: string
+          format: data
+        tags:
+          type: string
+        price:
+          type: integer
+          format: int64
+        is_sold:
+          type: boolean
+        is_archived:
+          type: boolean
+        weight:
+          type: integer
+        size:
+          type: string
+
+      required:
+        - id
+
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: integer
+        seller:
+          type: integer
+        datetime_created:
+          type: string
+          format: data
+        datetime_modified:
+          type: string
+          format: data
+        tags:
+          type: string
+        price:
+          type: integer
+          format: int64
+        is_sold:
+          type: boolean
+        is_archived:
+          type: boolean
+        area:
+          type: string
+
+      required:
+        - id
+
+paths:
+  /cars:
+    get:
+      tags:
+        - list all Car ads
+      summary: Lists all car ads
+      operationId: listCars
+      responses:
+        '200':
+          description: Successful operation
+  /cars/{id}:
+    get:
+      tags:
+        - get Car ad by id
+      description: Returns a single car ad
+      operationId: getCarById
+      parameters:
+        - name: id
+          in: path
+          description: car ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+        '404':
+          description: Not Found
+          content: { }
+  /cars/{id}/edit:
+    put:
+      tags:
+        - edit Car ad
+      description: Update an existing car ad
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid data supplied
+          content: { }
+        '404':
+          description: Not Found
+          content: { }
+  /cars/add:
+    post:
+      tags:
+        - add car ad
+      description: create new car ad
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Invalid request data
+
+  /things:
+    get:
+      tags:
+        - list all Thing ads
+      summary: Lists all Thing ads
+      operationId: listThings
+      responses:
+        '200':
+          description: Successful operation
+  /things/{id}:
+    get:
+      tags:
+        - get Thing ad by id
+      description: Returns a single thing ad
+      operationId: getThingById
+      parameters:
+        - name: id
+          in: path
+          description: thing ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Thing'
+        '404':
+          description: Not Found
+          content: { }
+  /things/{id}/edit:
+    put:
+      tags:
+        - edit Thing ad
+      description: Update an existing thing ad
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid data supplied
+          content: { }
+        '404':
+          description: Not Found
+          content: { }
+  /things/add:
+    post:
+      tags:
+        - add Thing ad
+      description: create new Thing ad
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Invalid request data
+
+  /services:
+    get:
+      tags:
+        - list all Service ads
+      summary: Lists all Service ads
+      operationId: listServices
+      responses:
+        '200':
+          description: Successful operation
+  /services/{id}:
+    get:
+      tags:
+        - get Service ad by id
+      description: Returns a single service ad
+      operationId: getServiceById
+      parameters:
+        - name: id
+          in: path
+          description: service ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+        '404':
+          description: Not Found
+          content: { }
+  /services/{id}/edit:
+    put:
+      tags:
+        - edit Service ad
+      description: Update an existing service ad
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid data supplied
+          content: { }
+        '404':
+          description: Not Found
+          content: { }
+  /service/add:
+    post:
+      tags:
+        - add Service ad
+      description: create new Service ad
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Invalid request data

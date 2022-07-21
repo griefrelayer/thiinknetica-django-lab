@@ -1,0 +1,22 @@
+<!-- templates/main/pagination.html -->
+{% load extra_tags %}
+<div class="pagination" style="margin:30px; padding-bottom:30px">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?{% url_replace request 'page' page_obj.previous_page_number %}">Назад</a>
+            {% for i in 1|range:page_obj.number %}
+                <a href="?{% url_replace request 'page' i %}">{{ i }}</a>
+            {% endfor %}
+        {% endif %}
+
+        <span class="current">
+            Стр. {{ page_obj.number }}
+        </span>
+        {% if page_obj.has_next %}
+            {% for i in page_obj.number|add:"1"|range:page_obj.paginator.num_pages %}
+                <a href="?{% url_replace request 'page' i %}">{{ i }}</a>
+            {% endfor %}
+            <a href="?{% url_replace request 'page' page_obj.next_page_number %}">Вперед</a>
+        {% endif %}
+    </span>
+</div>

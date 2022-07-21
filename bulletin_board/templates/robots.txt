@@ -1,0 +1,4 @@
+User-agent:*
+Disallow: /admin/
+Host: https://example.com
+sitemap: https://example.com/sitemap.xml
